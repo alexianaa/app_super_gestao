@@ -49,3 +49,7 @@ Route::get('/user/{name?}', function (?string $name = null) {
 Route::get('/number/{id?}', function (int $id) {
   return "numero = $id";
 })->where('id', '[0-9]+');
+
+Route::fallback(function () {
+  return 'A rota não existe. <a href="/" >clique aqui</a> para voltar a página inicial.';
+});
