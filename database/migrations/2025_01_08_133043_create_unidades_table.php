@@ -22,7 +22,7 @@ return new class extends Migration {
 
         });
 
-        Schema::table('produto_detalhes', function (Blueprint $table) {
+        Schema::table('produtos_detalhes', function (Blueprint $table) {
             $table->foreignId('unidade_id')->constrained();
         });
     }
@@ -32,8 +32,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::table('produto_detalhes', function (Blueprint $table) {
-            $table->dropForeign('produto_detalhes_unidade_id_foreign');
+        Schema::table('produtos_detalhes', function (Blueprint $table) {
+            $table->dropForeign('produtos_detalhes_unidade_id_foreign');
             $table->dropColumn('unidade_id');
         });
 
