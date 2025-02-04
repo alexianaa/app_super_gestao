@@ -3,8 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Database\Seeders\FornecedorSeeder;
-use Database\Seeders\SiteContatoSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call(FornecedorSeeder::class);
+        $this->call(MotivoContatoSeeder::class);
         $this->call(SiteContatoSeeder::class);
 
         User::factory()->create([
