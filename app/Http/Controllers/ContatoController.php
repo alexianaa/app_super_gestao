@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SiteContato;
 use App\Models\MotivoContato;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContatoRequest;
 
 class ContatoController extends Controller
 {
@@ -15,15 +16,9 @@ class ContatoController extends Controller
         return view('site.contato', ['motivos_contato' => $motivos_contato]);
     }
 
-    public function salvar(Request $request)
+    public function salvar(ContatoRequest $request)
     {
-        $request->validate([
-            'name' => 'required | min:3 | max:50', // unique:site_contatos
-            'motivo_contato_id' => 'required',
-            'telefone' => 'required',
-            'mensagem' => 'required | max:2000',
-            'email' => 'email',
-        ]);
+        $request->validated();
         SiteContato::create($request->all());
 
         // ideia: redirecionar para página de confirmação
