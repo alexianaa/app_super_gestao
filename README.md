@@ -5,3 +5,14 @@ Repositório feito para contribuir com meus estudos sobre o framework laravel ut
 Para executar localmente:
 
 > php artisan serve
+
+## Estudos contemplados
+
+1. Models
+2. Controllers
+3. Migrations + conexão com banco postgresql
+4. Blade
+5. Seeders
+5. Factories
+6. Requests
+7. Middleware
