@@ -4,8 +4,6 @@
 
 @section('conteudo')
 
-@include('site.layouts._partials.menu')
-
 <div class="conteudo-pagina">
     <div class="titulo-pagina">
         <h1>Entre em contato conosco</h1>

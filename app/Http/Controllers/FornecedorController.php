@@ -12,6 +12,6 @@ class FornecedorController extends Controller
             0 => ['nome' => 'Fornecedor 1', 'status' => 'S'],
             1 => ['nome' => 'Fornecedor 2', 'status' => 'N'],
         ];
-        return view('app.fornecedor.index', compact('fornecedores'));
+        return view('app.fornecedor', compact('fornecedores'));
     }
 }
