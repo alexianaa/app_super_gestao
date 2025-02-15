@@ -214,3 +214,12 @@ span {
 .redes-sociais img {
     margin: 0px 15px 0px 15px;
 }
+
+.pagination li {
+    display: inline;
+    margin: 0px 5px;
+}
+
+.pagination ul {
+    list-style-type: none;
+}

@@ -37,5 +37,8 @@ class FornecedorSeeder extends Seeder
             'email' => 'fornecedor300@email.com',
             'uf' => 'AL',
         ]);
+
+        // factory
+        Fornecedor::factory()->count(50)->create();
     }
 }

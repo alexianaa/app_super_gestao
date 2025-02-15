@@ -40,6 +40,7 @@
           </table>
         </div>
 
+        {{ $fornecedores->appends($request)->links() }}
     </div>
 
 @endsection

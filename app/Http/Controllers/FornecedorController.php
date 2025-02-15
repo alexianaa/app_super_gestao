@@ -14,15 +14,14 @@ class FornecedorController extends Controller
 
     public function listar(Request $request)
     {
-        $fornecedores = "";
-        if ($request->input('_token')) {
-            $fornecedores = Fornecedor::where('nome', 'like', "%" . $request->input('nome') . "%")
-                ->where('site', 'like', "%" . $request->input('site') . "%")
-                ->where('email', 'like', "%" . $request->input('email') . "%")
-                ->where('uf', 'like', "%" . $request->input('uf') . "%")
-                ->get();
-        }
-        return view('app.fornecedor.listar', ['fornecedores' => $fornecedores]);
+        
+        $fornecedores = Fornecedor::where('nome', 'like', "%" . $request->input('nome') . "%")
+            ->where('site', 'like', "%" . $request->input('site') . "%")
+            ->where('email', 'like', "%" . $request->input('email') . "%")
+            ->where('uf', 'like', "%" . $request->input('uf') . "%")
+            ->paginate(10);
+            
+        return view('app.fornecedor.listar', ['fornecedores' => $fornecedores, 'request' => $request->all()]);
     }
 
     public function adicionar(Request $request)
@@ -59,7 +58,7 @@ class FornecedorController extends Controller
     public function editar($id, $message = null)
     {
         $fornecedor = Fornecedor::find($id);
-        
+
         return view('app.fornecedor.adicionar', ['fornecedor' => $fornecedor, 'message' => $message]);
     }
 }
