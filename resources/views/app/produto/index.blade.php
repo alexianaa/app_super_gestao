@@ -21,6 +21,7 @@
                 <th>Unidade ID</th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
             </thead>
 
@@ -31,8 +32,15 @@
                 <td>{{$produto->descricao}}</td>
                 <td>{{$produto->peso}}</td>
                 <td>{{$produto->unidade_id}}</td>   
-                <td><a href={{route('produto.destroy', $produto->id)}}>excluir</a></td>
-                <td><a href={{route('produto.edit', $produto->id)}}>editar</a></td>
+                <td>
+                    <form method="post" action={{route('produto.destroy', [$produto->id])}}>
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+                <td><a href={{route('produto.edit', [$produto->id])}}>editar</a></td>
+                <td><a href={{route('produto.show', [$produto->id])}}>visualizar</a></td>
                 </tr>
             @endforeach
             </tbody>
