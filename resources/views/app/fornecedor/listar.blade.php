@@ -47,8 +47,6 @@
         Exibindo {{ $fornecedores->count() }} fornecedores de {{ $fornecedores->total() }} 
         (de {{$fornecedores->firstItem()}} a {{$fornecedores->lastItem()}} )
 
-
-
     </div>
 
 @endsection
