@@ -13,9 +13,17 @@
               <li><a href="{{ route('produto_detalhe.index') }}">Voltar</a></li>
             </ul>
         </div>
+        <div>
+            <h4>Produto</h4>
+            <div>Nome: {{$produto_detalhe->produto->nome ?? ''}}</div>
+            <br>
+            <div>Descricao: {{$produto_detalhe->produto->descricao ?? ''}}</div>
+            <br>
+        </div>
         <div class="informacao-pagina">
+
+
             @component('app.produto_detalhes._components.form_create_edit',['unidades' => $unidades, 'produtos' => $produtos, 'produto_detalhe' => $produto_detalhe])
-            
             @endcomponent
         </div>
 
