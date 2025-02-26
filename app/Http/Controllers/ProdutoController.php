@@ -61,8 +61,9 @@ class ProdutoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Produto $produto)
+    public function update(ProdutoStoreRequest $request, Produto $produto)
     {
+        $request->validated();
         $produto->update($request->all());
 
         return redirect()->route('produto.show',[ 'produto' => $produto->id]);
