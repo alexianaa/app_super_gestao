@@ -4,7 +4,7 @@
 
 @section('conteudo')
     <div class="conteudo-pagina">
-        <div class="titulo-pagina2">Produto - listar</div>
+        <div class="titulo-pagina2">Listagem de Produto</div>
         <div class="menu">
             <ul>
                 <li><a href="{{ route('produto.create') }}">Novo</a></li>
@@ -18,6 +18,8 @@
                 <th>Nome</th>
                 <th>Descricao</th>
                 <th>Peso</th>
+                <th>Fornecedor</th>
+                <th>Site Fornecedor</th>
                 <th>Unidade ID</th>
                 <th>Comprimento</th>
                 <th>Altura</th>
@@ -34,6 +36,8 @@
                 <td>{{$produto->nome}}</td>
                 <td>{{$produto->descricao}}</td>
                 <td>{{$produto->peso}}</td>
+                <td>{{$produto->fornecedor->nome}}</td>
+                <td>{{$produto->fornecedor->site}}</td>
                 <td>{{$produto->unidade_id}}</td>   
                 <td>{{$produto->produtoDetalhe->comprimento ?? ''}}</td>   
                 <td>{{$produto->produtoDetalhe->altura ?? ''}}</td>   
