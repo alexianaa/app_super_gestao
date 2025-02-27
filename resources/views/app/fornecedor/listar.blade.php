@@ -5,7 +5,7 @@
 @section('conteudo')
 
     <div class="conteudo-pagina">
-        <div class="titulo-pagina2">Fornecedor - listar</div>
+        <div class="titulo-pagina2">Listar Fornecedores</div>
         <div class="menu">
             <ul>
                 <li><a href="{{ route('app.fornecedor.adicionar') }}">Novo</a></li>
@@ -34,6 +34,27 @@
                   <td>{{$fornecedor->uf}}</td>
                   <td><a href={{route('app.fornecedor.excluir', $fornecedor->id)}}>excluir</a></td>
                   <td><a href={{route('app.fornecedor.editar', $fornecedor->id)}}>editar</a></td>
+                </tr>
+                <tr>
+                  <td colspan="6">
+                      <p>Lista de Produtos</p>
+                      <table border=1 style="margin: 20px">
+                        <thread>
+                          <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                          </tr>
+                        </thread>
+                        <tbody>
+                          @foreach ($fornecedor->produtos as $key => $produto)
+                            <tr>
+                              <th>{{$produto->id}}</th>
+                              <th>{{$produto->nome}}</th>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
