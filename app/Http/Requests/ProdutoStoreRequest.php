@@ -27,6 +27,7 @@ class ProdutoStoreRequest extends FormRequest
                 'descricao' => 'required | min:3 | max:2000',
                 'peso' => 'required | integer',
                 'unidade_id' => 'exists:unidades,id',
+                'fornecedor_id' => 'exists:fornecedores,id',
             ];
     }
 
@@ -43,7 +44,7 @@ class ProdutoStoreRequest extends FormRequest
                 'min' => 'O campo :attribute deve ter no mínimo :min caracteres',
                 'max' => 'O campo :attribute deve ter no mínimo :max caracteres',
                 'integer' => 'O campo :attribute deve ser um número inteiro',
-                'exists' => 'O campo :attribute deve ser uma unidade de medida existente'
+                'exists' => 'O campo :attribute não existe'
             ];
     }
 
@@ -56,6 +57,7 @@ class ProdutoStoreRequest extends FormRequest
     {
         return [
             'unidade_id' => 'unidade',
+            'fornecedor_id' => 'fornecedor',
         ];
     }
 }

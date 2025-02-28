@@ -20,10 +20,10 @@ return new class extends Migration
                 'email' => 'fornecedorpadrao@example.com',
             ]);
 
-            // $table->unsignedBigInteger('fornecedor_id')->default($fornecedorId);
-            // $table->foreign('fornecedor_id')->references('id')->on('fornecedores')->onDelete('restrict')->onUpdate('restrict');
+            //$table->unsignedBigInteger('fornecedor_id')->default(56);
+            //$table->foreign('fornecedor_id')->references('id')->on('fornecedores')->onDelete('restrict')->onUpdate('restrict');
 
-            $table->foreignId('fornecedor_id')->default($fornecedorId)->constrained(table: 'fornecedores',indexName: 'produto_fornecedor_id')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreignId('fornecedor_id')->default($fornecedorId)->constrained( 'fornecedores','id', 'produto_fornecedor_id')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
