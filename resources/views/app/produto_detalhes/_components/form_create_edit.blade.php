@@ -7,13 +7,13 @@
     @csrf
     <input type="hidden" name="id" value="{{ $produto_detalhe->id ?? '' }}" >
     
-    <input min="0" step=".01" type="number" name="comprimento" class="borda-preta" placeholder="comprimento" value={{$produto_detalhe->comprimento ?? old('comprimento')}}>
+    <input min="0" step=".01" type="number" name="comprimento" class="borda-preta" placeholder="comprimento" value="{{$produto_detalhe->comprimento ?? old('comprimento')}}">
     {{ $errors->has('comprimento') ? $errors->first('comprimento') : '' }}
 
-    <input min="0" step=".01" type="number" name="largura" class="borda-preta" placeholder="largura" value={{$produto_detalhe->largura ?? old('largura')}}>
+    <input min="0" step=".01" type="number" name="largura" class="borda-preta" placeholder="largura" value="{{$produto_detalhe->largura ?? old('largura')}}">
     {{ $errors->has('largura') ? $errors->first('largura') : '' }}
     
-    <input min="0" step=".01" type="number" name="altura" class="borda-preta" placeholder="altura" value={{$produto_detalhe->altura ?? old('altura')}}>
+    <input min="0" step=".01" type="number" name="altura" class="borda-preta" placeholder="altura" value="{{$produto_detalhe->altura ?? old('altura')}}">
     {{ $errors->has('altura') ? $errors->first('altura') : '' }}
     
     <select name="produto_id">

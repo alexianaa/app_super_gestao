@@ -7,13 +7,13 @@
   @csrf
   <input type="hidden" name="id" value="{{ $produto->id ?? '' }}" >
   
-  <input type="text" name="nome" class="borda-preta" placeholder="Nome" value={{$produto->nome ?? old('nome')}}>
+  <input type="text" name="nome" class="borda-preta" placeholder="Nome" value="{{$produto->nome ?? old('nome')}}">
   {{ $errors->has('nome') ? $errors->first('nome') : '' }}
 
-  <input type="text" name="descricao" class="borda-preta" placeholder="descricao" value={{$produto->descricao ?? old('descricao')}}>
+  <input type="text" name="descricao" class="borda-preta" placeholder="descricao" value="{{$produto->descricao ?? old('descricao')}}">
   {{ $errors->has('descricao') ? $errors->first('descricao') : '' }}
   
-  <input type="number" name="peso" class="borda-preta" placeholder="peso" value={{$produto->peso ?? old('peso')}}>
+  <input type="number" name="peso" class="borda-preta" placeholder="peso" value="{{$produto->peso ?? old('peso')}}">
   {{ $errors->has('peso') ? $errors->first('peso') : '' }}
 
   <select name="fornecedor_id">
