@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pedido;
+use App\Models\Cliente;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -9,9 +11,10 @@ class PedidoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $pedidos = Pedido::with('cliente')->paginate(10);
+        return view('app.pedido.index',['pedidos' => $pedidos, 'request' => $request->all()]);
     }
 
     /**
@@ -19,7 +22,8 @@ class PedidoController extends Controller
      */
     public function create()
     {
-        //
+        $clientes = Cliente::all();
+        return view('app.pedido.create', ['clientes' => $clientes]);
     }
 
     /**
@@ -27,7 +31,12 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $regras = ['nome' => 'exists:clientes,id'];
+        $feedback = ['exists' => 'O campo :attribute deve existir',];
+        $request->validate($regras,$feedback);
+
+        Pedido::create($request->all());
+        return redirect()->route('pedido.index');
     }
 
     /**

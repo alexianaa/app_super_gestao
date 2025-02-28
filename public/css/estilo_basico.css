@@ -180,6 +180,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     display: flex;
+    flex-direction: column;
 }
 .informacao-pagina form {
     width: 30%;
