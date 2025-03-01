@@ -66,8 +66,9 @@ class PedidoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Pedido $pedido)
     {
-        //
+        $pedido->delete();
+        return redirect()->route('pedido.index');
     }
 }

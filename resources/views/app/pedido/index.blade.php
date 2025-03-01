@@ -31,10 +31,11 @@
                 <td>{{$pedido->cliente->nome}}</td>  
                 <td><a href={{route('pedido-produto.create', ['pedido' => $pedido->id])}} >adicionar produtos</a></td>  
                 <td>
-                    <form method="post" action={{route('pedido.destroy', [$pedido->id])}}>
+                    <form  id="form_{{ $pedido->id }}" method="post" action="{{ route('pedido.destroy', ['pedido' => $pedido->id]) }}">
                         @method('DELETE')
                         @csrf
-                        <button type="submit">Excluir</button>
+                        <a href="#" onclick="document.getElementById('form_{{ $pedido->id }}').submit()">Excluir</a>
+                        <p>
                     </form>
                 </td>
                 <td><a href={{route('pedido.edit', [$pedido->id])}}>editar</a></td>

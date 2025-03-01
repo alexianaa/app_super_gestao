@@ -16,3 +16,9 @@ Para executar localmente:
 5. Factories
 6. Requests
 7. Middleware
+8. ORM Eloquent
+
+![tela inicial](./tela1.png)
+![listagem de produtos](./listagem.png)
+![adicionar produtos](./adicionar.png)
+![editar produtos](./editar.png)

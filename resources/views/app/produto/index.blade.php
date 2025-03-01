@@ -43,10 +43,11 @@
                 <td>{{$produto->produtoDetalhe->altura ?? ''}}</td>   
                 <td>{{$produto->produtoDetalhe->largura ?? ''}}</td>   
                 <td>
-                    <form method="post" action={{route('produto.destroy', [$produto->id])}}>
+                    <form  id="form_{{ $produto->id }}" method="post" action="{{ route('produto.destroy', ['produto' => $produto->id]) }}">
                         @method('DELETE')
                         @csrf
-                        <button type="submit">Excluir</button>
+                        <a href="#" onclick="document.getElementById('form_{{ $produto->id }}').submit()">Excluir</a>
+                        <p>
                     </form>
                 </td>
                 <td><a href={{route('produto.edit', [$produto->id])}}>editar</a></td>

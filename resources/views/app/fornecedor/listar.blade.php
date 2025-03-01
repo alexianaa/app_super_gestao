@@ -32,7 +32,14 @@
                   <td>{{$fornecedor->site}}</td>
                   <td>{{$fornecedor->email}}</td>
                   <td>{{$fornecedor->uf}}</td>
-                  <td><a href={{route('app.fornecedor.excluir', $fornecedor->id)}}>excluir</a></td>
+                  <td>
+                    <form  id="form_{{ $fornecedor->id }}" method="post" action="{{ route('app.fornecedor.excluir', ['id' => $fornecedor->id]) }}">
+                        @method('GET')
+                        @csrf
+                        <a href="#" onclick="document.getElementById('form_{{ $fornecedor->id }}').submit()">Excluir</a>
+                        <p>
+                    </form>
+                  </td>
                   <td><a href={{route('app.fornecedor.editar', $fornecedor->id)}}>editar</a></td>
                 </tr>
                 <tr>

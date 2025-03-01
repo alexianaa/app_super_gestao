@@ -11,7 +11,7 @@
                 <li><a href="{{ route('cliente.index') }}">Consulta</a></li>
             </ul>
         </div>
-        <div class="informacao-pagina">
+        <div class="info-2">
         <table border="1" width="90%">
             <thead>
             <tr>
@@ -24,17 +24,18 @@
 
             <tbody>
             @foreach ($clientes as $cliente)
-                <tr>
-                <td>{{$cliente->nome}}</td>  
-                <td>
-                    <form method="post" action={{route('cliente.destroy', [$cliente->id])}}>
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit">Excluir</button>
-                    </form>
-                </td>
-                <td><a href={{route('cliente.edit', [$cliente->id])}}>editar</a></td>
-                <td><a href={{route('cliente.show', [$cliente->id])}}>visualizar</a></td>
+                <tr >
+                    <td>{{$cliente->nome}}</td>  
+                    <td>
+                        <form  id="form_{{ $cliente->id }}" method="post" action="{{ route('cliente.destroy', ['cliente' => $cliente->id]) }}">
+                            @method('DELETE')
+                            @csrf
+                            <a href="#" onclick="document.getElementById('form_{{ $cliente->id }}').submit()">Excluir</a>
+                            <p>
+                        </form>
+                    </td>
+                    <td><a href={{route('cliente.edit', [$cliente->id])}}>editar</a></td>
+                    <td><a href={{route('cliente.show', [$cliente->id])}}>visualizar</a></td>
                 </tr>
             @endforeach
             </tbody>
