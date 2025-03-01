@@ -15,4 +15,10 @@ class Produto extends Model
     public function fornecedor() {
         return $this->belongsTo(Fornecedor::class);
     }
+
+    public function pedidos() {
+        return $this->belongsToMany(Pedido::class,'pedido_produtos','produto_id','pedido_id');
+        // foreignPivotKey: id da model atual
+        // relatedPivotKey: id da model utilizado no relacionamento
+    }
 }
